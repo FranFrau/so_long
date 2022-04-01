@@ -6,7 +6,7 @@
 /*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 18:21:11 by ffrau             #+#    #+#             */
-/*   Updated: 2022/03/21 04:52:48 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/03/31 15:20:37 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,6 @@ void	move_down(t_map *m)
 
 void	move_left(t_map *m)
 {
-	int		y;
-
-	y = m->y * 64;
 	if (m->map[m->y][m->x - 1] == '1')
 		return ;
 	else if (m->map[m->y][m->x - 1] == 'C')
@@ -89,9 +86,6 @@ void	move_left(t_map *m)
 
 void	move_right(t_map *m)
 {
-	int		y;
-
-	y = m->y * 64;
 	if (m->map[m->y][m->x + 1] == '1')
 		return ;
 	else if (m->map[m->y][m->x + 1] == 'C')
@@ -118,9 +112,6 @@ void	move_right(t_map *m)
 
 void	move_up(t_map *m)
 {
-	int		x;
-
-	x = m->x * 64;
 	if (m->map[m->y - 1][m->x] == '1')
 		return ;
 	else if (m->map[m->y - 1][m->x] == 'C')

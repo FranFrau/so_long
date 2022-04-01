@@ -6,7 +6,7 @@
 /*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 07:34:44 by ffrau             #+#    #+#             */
-/*   Updated: 2022/03/21 23:37:23 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/03/31 15:11:46 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ void	esc(t_map *m)
 
 void	print_end(t_map *m)
 {
-	void	*end;
+	void	*img;
 	int		x;
 	t_win	v;
 
 	v = m->win;
-	end = mlx_xpm_file_to_image(v.mlx, "img/end.xpm", &x, &x);
+	img = mlx_xpm_file_to_image(v.mlx, "img/win.xpm", &x, &x);
 	if (m->status == L_GAME)
-		end = mlx_xpm_file_to_image(v.mlx, "img/win3.xpm", &x, &x);
-	mlx_put_image_to_window(v.mlx, v.win, end, (m->col * 32) - 160, \
+		img = mlx_xpm_file_to_image(v.mlx, "img/end.xpm", &x, &x);
+	mlx_put_image_to_window(v.mlx, v.win, img, (m->col * 32) - 160, \
 							(m->row * 32) - 160);
 	m->moves++;
 	print_moves(m);
-	mlx_put_image_to_window(v.mlx, v.win, end, (m->col * 32) - 160, \
+	mlx_put_image_to_window(v.mlx, v.win, img, (m->col * 32) - 160, \
 							(m->row * 32) - 160);
 }

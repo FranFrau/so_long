@@ -6,7 +6,7 @@
 /*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:03:40 by ffrau             #+#    #+#             */
-/*   Updated: 2022/03/22 11:06:20 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/03/31 15:16:28 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	check_map(t_map *map)
 			col++;
 		if (i == 0)
 			map->col = col;
-		printf("Colonne: %d\n", col);
 		if (map->col != col)
 			print_error(NVALID_MAP_TXT, NVALID_MAP, map);
 		if ((i != 0 && i != map->row - 1) && map->col != col)

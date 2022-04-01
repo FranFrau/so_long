@@ -6,7 +6,7 @@
 #    By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 13:14:48 by ffrau             #+#    #+#              #
-#    Updated: 2022/03/22 01:14:34 by ffrau            ###   ########.fr        #
+#    Updated: 2022/03/31 15:29:30 by ffrau            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,14 +50,15 @@ MLX		=	./libmlx.dylib
 
 RM		=	rm -fr
 
-
 $(NAME):	$(SL_OBJ)
-			make -C ./minilibx
-			@mv minilibx/libmlx.dylib ../so_long
+			@(test -f $(MLX)  && echo "\033[32mMLX already built\033[0m") || (make -C ./minilibx && mv minilibx/libmlx.dylib .)
 			$(CC) $(CFLAGS) -o $(NAME) $(SL_OBJ) $(MLX)
 			@(echo "\033[32mSO_LONG>> Compiled\033[0m")
 
 all:		$(NAME)
+ 
+norme:
+		@norminette $(SL_SRC)
 
 clean:
 			make clean -C minilibx
