@@ -6,7 +6,7 @@
 /*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:36:49 by ffrau             #+#    #+#             */
-/*   Updated: 2022/04/01 18:06:12 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/04/06 13:25:47 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	set_image_2(t_map *m, int i, int j)
 		else if (i != 0 && i != m->row - 1 && j == m->col - 1)
 			mlx_put_image_to_window(v.mlx, v.win, mlx_xpm_file_to_image(v.mlx, "img/wall/wallvs.xpm", &h, &h), j * 64, i * 64);
 		else if (j != 0 && j != m->row - 1 && j % 2 == 0)
-			mlx_put_image_to_window(v.mlx, v.win, f.exit2, j * 64, i * 64);
+			mlx_put_image_to_window(v.mlx, v.win, mlx_xpm_file_to_image(v.mlx, "img/dietro.xpm", &h, &h), j * 64, i * 64);
 		else if (j != 0 && j != m->row - 1 && j % 2 != 0)
 			mlx_put_image_to_window(v.mlx, v.win, f.wall, j * 64, i * 64);
 	}

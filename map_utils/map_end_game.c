@@ -6,7 +6,7 @@
 /*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 07:34:44 by ffrau             #+#    #+#             */
-/*   Updated: 2022/03/31 15:11:46 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/04/07 11:21:27 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,15 @@ void	print_end(t_map *m)
 	img = mlx_xpm_file_to_image(v.mlx, "img/win.xpm", &x, &x);
 	if (m->status == L_GAME)
 		img = mlx_xpm_file_to_image(v.mlx, "img/end.xpm", &x, &x);
-	mlx_put_image_to_window(v.mlx, v.win, img, (m->col * 32) - 160, \
-							(m->row * 32) - 160);
+	mlx_put_image_to_window(v.mlx, v.win, img, ((m->col * 64) / 2) - 256, \
+		((m->row * 64) / 2) - 256);
 	m->moves++;
 	print_moves(m);
-	mlx_put_image_to_window(v.mlx, v.win, img, (m->col * 32) - 160, \
-							(m->row * 32) - 160);
+	mlx_put_image_to_window(v.mlx, v.win, img, ((m->col * 64) / 2) - 256, \
+		((m->row * 64) / 2) - 256);
+	printf("\n+-+-+-+-+         +-+-+-+-+-+      \n\
+|C|o|d|e|         |f|f|r|a|u|      \n\
++-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+\n\
+|G|r|a|p|h|i|c|s| |c|c|o|l|a|i|a|c|\n\
++-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+-+\n\n");
 }
