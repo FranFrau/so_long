@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util_str_manipulation.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
+/*   By: ffrau <ffrau@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:58:11 by ffrau             #+#    #+#             */
-/*   Updated: 2022/03/21 13:46:12 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/05/13 14:02:31 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*get_next_line(int fd)
 			break ;
 		i++;
 	}
-	if (!a[0])
+	if (a[0] == '\n' || !a[0])
 		return (NULL);
 	new_a = malloc(i + 1);
 	if (!new_a)
