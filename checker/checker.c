@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ffrau <ffrau@student.42roma.it>            +#+  +:+       +#+        */
+/*   By: ffrau <ffrau@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 10:32:34 by ffrau             #+#    #+#             */
-/*   Updated: 2022/03/21 03:36:16 by ffrau            ###   ########.fr       */
+/*   Updated: 2022/05/21 16:19:52 by ffrau            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,26 @@ void	is_closed(t_map *map)
 	}
 }
 
+bool	ft_check_map_name(char *filename)
+{
+	int	len;
+
+	len = 0;
+	while (filename[len])
+		len++;
+	if (filename[len - 4] != '.' || filename[len - 3] != 'b'
+		|| filename[len - 2] != 'e' || filename[len - 1] != 'r')
+		return (false);
+	else
+		return (true);
+}
+
 void	is_valid(int argc, char **argv, t_map *map)
 {
 	if (argc < 2)
-		print_error(ft_strjoin(ERROR_TXT, ARGS_ERROR_TXT), ARGS_ERROR, map);
+		print_bf_exit_error(ft_strjoin(ERROR_TXT, ARGS_ERROR_TXT), ARGS_ERROR);
+	if (!ft_check_map_name(argv[1]))
+		exit(write(2, "Error, This isn't a .ber file\n", 30));
 	initial_value(map);
 	load_map(map, argv[1]);
 	if (map->check.collectible < 1 || map->check.pos != 1
